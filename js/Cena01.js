@@ -140,7 +140,7 @@ class Cena01 extends Phaser.Scene
 
     ColisaoPlayerChave(player, chave)
     {
-        if (pontuacao == 40) this.scene.start("preload");
+        if (pontuacao == 40) this.scene.start("Cena02");
         else this.scene.start("Cena01");
     }
 
