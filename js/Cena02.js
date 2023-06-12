@@ -8,14 +8,17 @@ class Cena02 extends Phaser.Scene
     create()
     {
         //this.add.image(400, 300, "fundo")
-        var fundo = this.add.image(0, 0, "fundo").setOrigin(0, 0)
+        var fundo = this.add.image(0, 0, "fundo2").setOrigin(0, 0)
         fundo.setScale(2.7)
 
-        var chao = this.physics.add.staticGroup();
-        chao.create(0, 520, "chao").setOrigin(0, 0).refreshBody();
-        var chao2 = this.physics.add.staticGroup();
-        chao2.create(400, 520, "chao").setOrigin(0, 0).refreshBody();
-        //chao.create(0, 500, "chao").setOrigin(0,0).setScale(2).refreshBody();
+        this.chaolab = this.physics.add.staticGroup({
+            key: "chao2",
+            repeat: 5,
+            setXY: { x: 80, y: 540, stepX: 150, stepY: 0}
+        });
+
+        var mesa1 = this.physics.add.staticGroup();
+        mesa1.create(50, 520, "mesa1").refreshBody();
 
         var chave = this.physics.add.staticGroup();
         chave.create(750, 275, "chave").setScale(3).refreshBody();
@@ -82,8 +85,7 @@ class Cena02 extends Phaser.Scene
         
         //asd -------------------
         //this.physics.add.collider(this.baus, chao)
-        this.physics.add.collider(player, chao)
-        this.physics.add.collider(player, chao2)
+        this.physics.add.collider(player, this.chaolab)
         this.physics.add.collider(player, this.plataformas)
 
         //on collision -----------------
@@ -95,7 +97,7 @@ class Cena02 extends Phaser.Scene
         this.physics.add.collider(player, this.facas, this.ColisaoPlayerFaca, null, this)
         this.physics.add.collider(player, chave, this.ColisaoPlayerChave, null, this)
 
-        pontuacao = 0
+        pontuacao = 5
         pontuacaoUI = this.add.text(10, 10, "Pontuação: " + pontuacao, { font: "30px Arial"});
 
         tecla = this.input.keyboard.createCursorKeys();
@@ -128,7 +130,7 @@ class Cena02 extends Phaser.Scene
 
     ColisaoPlayerInimigo(player, inimigo)
     {
-        this.scene.start("Cena01");
+        this.scene.start("Cena02");
     }
 
     ColisaoPlayerFaca(player, faca)
@@ -141,7 +143,7 @@ class Cena02 extends Phaser.Scene
     ColisaoPlayerChave(player, chave)
     {
         if (pontuacao == 40) this.scene.start("preload");
-        else this.scene.start("Cena01");
+        else this.scene.start("Cena02");
     }
 
     // colisaoPlayerRocha(player, rocha)
