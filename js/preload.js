@@ -20,7 +20,7 @@ class preload extends Phaser.Scene
         this.load.image("fundo", "/assets/_fundo.png")
         this.load.image("fundoMenu", "/assets/_fundoMenu.jpg")
         this.load.image("fundo2", "/assets/LabTileset/Backgrounds/984-0.png")
-        this.load.image("btn_play", "/assets/_btn_play.png")
+        this.load.image("btn_play", "/assets/_btn_play02.png")
         this.load.spritesheet("player", "assets/_alien.png", { frameWidth: 25, frameHeight: 35})
         this.load.image("plataforma","/assets/_plataforma.png")
         this.load.image("inimigo","/assets/_inimigo.png")
@@ -31,11 +31,11 @@ class preload extends Phaser.Scene
     create()
     {
         var fundo = this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
-        fundo.setScale(2.7)
+        //fundo.setScale(2.7)
 
         var btn_play = this.add.image(400, 300, "btn_play")
         btn_play.setInteractive()
-        btn_play.on("pointerdown", ()=>this.scene.start("Cena02"))
+        btn_play.on("pointerdown", ()=>this.scene.start("Cena01"))
 
         //var hitArea = new Phaser.Geom.Rectangle(0, 0, 100, 100);
         //btn_play.setInteractive(hitArea, Phaser.Geom.Rectangle.Contains);
