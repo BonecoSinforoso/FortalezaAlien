@@ -18,6 +18,7 @@ class preload extends Phaser.Scene
         this.load.image("mesa1","/assets/LabTileset/Lab/862-0.png")
         this.load.image("prateleira","/assets/LabTileset/Lab/1005-0.png")
         this.load.image("fundo", "/assets/_fundo.png")
+        this.load.image("fundoMenu", "/assets/_fundoMenu.jpg")
         this.load.image("fundo2", "/assets/LabTileset/Backgrounds/984-0.png")
         this.load.image("btn_play", "/assets/_btn_play.png")
         this.load.spritesheet("player", "assets/_alien.png", { frameWidth: 25, frameHeight: 35})
@@ -29,7 +30,7 @@ class preload extends Phaser.Scene
 
     create()
     {
-        var fundo = this.add.image(0, 0, "fundo").setOrigin(0, 0)
+        var fundo = this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
         fundo.setScale(2.7)
 
         var btn_play = this.add.image(400, 300, "btn_play")
