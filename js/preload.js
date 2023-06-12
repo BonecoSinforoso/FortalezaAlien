@@ -13,16 +13,6 @@ class preload extends Phaser.Scene
 
     preload()
     {
-        //miriangostosa
-        this.load.image("bau","/assets/bau.png")
-        this.load.image("playBT","/assets/btn_play.png")
-        //this.load.image("chao","/assets/chao.png")
-        //this.load.image("fundo","/assets/fundo.png")
-        this.load.image("jogadorCapa","/assets/jogadorCapa.png")
-        this.load.image("rocha","/assets/rocha.png")
-        //this.load.spritesheet("player", "assets/dude.png", { frameWidth: 32, frameHeight: 48 })
-
-        //me
         this.load.image("chao","/assets/_chao.png")
         this.load.image("fundo", "/assets/_fundo.png")
         this.load.image("btn_play", "/assets/_btn_play.png")
@@ -38,22 +28,7 @@ class preload extends Phaser.Scene
 
     create()
     {
-        // if (!puloc) {
-        //     puloc = this.sound.add("audioPulo");
-        //     puloc.play({ loop: true });
-        // }
-
-        //this.audioS = 
-
-        //this.add.image(400, 300, "fundo") //background        
-        //this.add.image(600, 300, "jogadorCapa") //leprechaun
-        //this.add.image(0, 500, "chao").setOrigin(0,0) //chao
-
-        //this.playBT = this.add.image(350, 225, "playBT") //botao        
-        //this.playBT.setInteractive() //set butao como interativo
-        //this.playBT.on("pointerdown", ()=>this.scene.start("Cena01")) //quando clicado, leva pra cena 01
-
-        var fundo = this.add.image(0, 0, "fundo").setOrigin(0, 0) //background
+        var fundo = this.add.image(0, 0, "fundo").setOrigin(0, 0)
         fundo.setScale(2.7)
 
         var btn_play = this.add.image(400, 300, "btn_play")

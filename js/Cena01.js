@@ -7,7 +7,6 @@ class Cena01 extends Phaser.Scene
 
     create()
     {
-        //this.add.image(400, 300, "fundo")
         var fundo = this.add.image(0, 0, "fundo").setOrigin(0, 0)
         fundo.setScale(2.7)
 
@@ -27,17 +26,6 @@ class Cena01 extends Phaser.Scene
 
         var _faca = this.physics.add.staticGroup();
         _faca.create(600, 500, "faca");
-       
-        // this.rochas = this.physics.add.staticGroup({
-        //     key: "rocha",
-        //     repeat: 2,
-        //     setXY: { x: 200, y: 490, stepX: 200}
-        // });
-        // this.baus = this.physics.add.staticGroup({
-        //     key: "bau",
-        //     repeat: 3,
-        //     setXY: { x: 50, y: 480, stepX: 220}
-        // });
 
         this.plataformas = this.physics.add.staticGroup({
             key: "plataforma",
@@ -81,14 +69,11 @@ class Cena01 extends Phaser.Scene
         });
         
         //asd -------------------
-        //this.physics.add.collider(this.baus, chao)
         this.physics.add.collider(player, chao)
         this.physics.add.collider(player, chao2)
         this.physics.add.collider(player, this.plataformas)
 
         //on collision -----------------
-        //this.physics.add.collider(player, this.rochas, this.colisaoPlayerRocha, null, this)
-        //this.physics.add.collider(player, this.baus, this.colisaoPlayerBau, null, this)
         this.physics.add.collider(player, _inimigo, this.ColisaoPlayerInimigo, null, this)
         this.physics.add.collider(player, this.inimigos, this.ColisaoPlayerInimigo, null, this)
         this.physics.add.collider(player, _faca, this.ColisaoPlayerFaca, null, this)
@@ -143,23 +128,4 @@ class Cena01 extends Phaser.Scene
         if (pontuacao == 40) this.scene.start("Cena02");
         else this.scene.start("Cena01");
     }
-
-    // colisaoPlayerRocha(player, rocha)
-    // {
-    //     pontuacao--
-    //     pontuacaoUI.setText("Pontuação: " + pontuacao);
-
-    //     if(pontuacao <= 0) this.scene.start("Cena01")
-    // }
-
-    // colisaoPlayerBau(player, bau)
-    // {
-    //     pontuacao += 20
-    //     bau.disableBody(true,true)
-    //     pontuacaoUI.setText("Pontuação: " + pontuacao);
-    //     if(this.baus.countActive(true) == 0)
-    //     {
-    //         this.scene.start("preload")
-    //     }
-    // }
 }
