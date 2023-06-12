@@ -17,6 +17,8 @@ class preload extends Phaser.Scene
         this.load.image("chao2","/assets/LabTileset/Lab/chao2.png")
         this.load.image("mesa1","/assets/LabTileset/Lab/862-0.png")
         this.load.image("prateleira","/assets/LabTileset/Lab/1005-0.png")
+        this.load.image("plataforma2","/assets/LabTileset/Lab/952-0.png")
+        this.load.image("ativador","/assets/LabTileset/Lab/961-0.png")
         this.load.image("fundo", "/assets/_fundo.png")
         this.load.image("fundoMenu", "/assets/_fundoMenu.jpg")
         this.load.image("fundo2", "/assets/LabTileset/Backgrounds/984-0.png")
@@ -35,7 +37,7 @@ class preload extends Phaser.Scene
 
         var btn_play = this.add.image(400, 300, "btn_play")
         btn_play.setInteractive()
-        btn_play.on("pointerdown", ()=>this.scene.start("Cena01"))
+        btn_play.on("pointerdown", ()=>this.scene.start("Cena02"))
 
         //var hitArea = new Phaser.Geom.Rectangle(0, 0, 100, 100);
         //btn_play.setInteractive(hitArea, Phaser.Geom.Rectangle.Contains);
