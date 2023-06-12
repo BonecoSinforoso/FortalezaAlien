@@ -21,9 +21,6 @@ class preload extends Phaser.Scene
         this.load.image("inimigo","/assets/_inimigo.png")
         this.load.image("faca","/assets/_faca.png")
         this.load.image("chave","/assets/_chave.png")
-
-        this.load.audio("audioFundo", "/assets/nota4.wav")
-        this.load.audio("audioPulo", "/assets/aud_pulo.wav")
     }
 
     create()
