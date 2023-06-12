@@ -13,6 +13,8 @@ class preload extends Phaser.Scene
 
     preload()
     {
+
+        //miriangostosa
         this.load.image("bau","/assets/bau.png")
         this.load.image("playBT","/assets/btn_play.png")
         //this.load.image("chao","/assets/chao.png")
