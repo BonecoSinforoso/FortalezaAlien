@@ -18,15 +18,15 @@ class Cena02 extends Phaser.Scene
         });
 
         var mesa1 = this.physics.add.staticGroup();
-        mesa1.create(50, 520, "mesa1").refreshBody();
+        mesa1.create(150, 476, "mesa1").setScale(1.5).refreshBody();
+
+        var prateleira = this.physics.add.staticGroup();
+        prateleira.create(450, 476, "prateleira").setScale(1.5).refreshBody();
 
         var chave = this.physics.add.staticGroup();
         chave.create(750, 275, "chave").setScale(3).refreshBody();
 
         player = this.physics.add.sprite(400, 470, "player");
-
-        var _inimigo = this.physics.add.staticGroup();
-        _inimigo.create(500, 500, "inimigo");
 
         var _faca = this.physics.add.staticGroup();
         _faca.create(600, 500, "faca");
@@ -91,7 +91,6 @@ class Cena02 extends Phaser.Scene
         //on collision -----------------
         //this.physics.add.collider(player, this.rochas, this.colisaoPlayerRocha, null, this)
         //this.physics.add.collider(player, this.baus, this.colisaoPlayerBau, null, this)
-        this.physics.add.collider(player, _inimigo, this.ColisaoPlayerInimigo, null, this)
         this.physics.add.collider(player, this.inimigos, this.ColisaoPlayerInimigo, null, this)
         this.physics.add.collider(player, _faca, this.ColisaoPlayerFaca, null, this)
         this.physics.add.collider(player, this.facas, this.ColisaoPlayerFaca, null, this)

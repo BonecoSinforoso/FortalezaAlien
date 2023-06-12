@@ -16,6 +16,7 @@ class preload extends Phaser.Scene
         this.load.image("chao","/assets/_chao.png")
         this.load.image("chao2","/assets/LabTileset/Lab/chao2.png")
         this.load.image("mesa1","/assets/LabTileset/Lab/862-0.png")
+        this.load.image("prateleira","/assets/LabTileset/Lab/1005-0.png")
         this.load.image("fundo", "/assets/_fundo.png")
         this.load.image("fundo2", "/assets/LabTileset/Backgrounds/984-0.png")
         this.load.image("btn_play", "/assets/_btn_play.png")
