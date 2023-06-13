@@ -1,3 +1,5 @@
+var laserObject;
+
 class Cena02 extends Phaser.Scene
 {
     constructor()
@@ -7,6 +9,7 @@ class Cena02 extends Phaser.Scene
 
     create()
     {
+
         //this.add.image(400, 300, "fundo")
         var fundo = this.add.image(0, 0, "fundo2").setOrigin(0, 0)
         fundo.setScale(2.7)
@@ -24,13 +27,19 @@ class Cena02 extends Phaser.Scene
         prateleira.create(450, 476, "prateleira").setScale(1.5).refreshBody();
 
         var ativador = this.physics.add.staticGroup();
-        ativador.create(750, 280, "ativador").refreshBody();
+        ativador.create(780, 280, "ativador").refreshBody();
 
         var teste = this.physics.add.staticGroup();
         teste.create(100, 50, "ChaveTeste").setScale(0.02).refreshBody();
 
+        var porta = this.physics.add.staticGroup();
+        porta.create(750, 484, "porta").setScale(2.5).refreshBody();
+
+        var cientista = this.physics.add.staticGroup();
+        cientista.create(50, 495, "cientista").setScale(0.12).refreshBody();
+
         var laser = this.physics.add.staticGroup();
-        var laserObject = laser.create(700, 410, "laser").setScale(0.13).refreshBody();
+        laserObject = laser.create(670, 410, "laser").setScale(0.13).refreshBody();
         laserObject.setAngle(-90);
         var novaLarguraColisao = 1;
         var alturaColisao = 200;
@@ -39,18 +48,18 @@ class Cena02 extends Phaser.Scene
         player = this.physics.add.sprite(400, 470, "player");
 
         var _faca = this.physics.add.staticGroup();
-        _faca.create(600, 500, "faca");
+        _faca.create(600, 500, "bateria");
 
         this.plataformas = this.physics.add.staticGroup({
             key: "chao2",
             repeat: 2,
-            setXY: { x: 200, y: 400, stepX: 250, stepY: -50}
+            setXY: { x: 230, y: 400, stepX: 250, stepY: -50}
         });
 
         this.facas = this.physics.add.staticGroup({
-            key: "faca",
+            key: "bateria",
             repeat: 2,
-            setXY: { x: 150, y: 366, stepX: 250, stepY: -50}
+            setXY: { x: 180, y: 366, stepX: 250, stepY: -50}
         });
 
         this.plataformas.children.iterate(function (plataforma, index) {
@@ -77,6 +86,8 @@ class Cena02 extends Phaser.Scene
             frameRate: 10,
             repeat: -1
         });
+
+        
         
         this.physics.add.collider(player, this.chaolab)
         this.physics.add.collider(player, this.plataformas)
@@ -86,9 +97,10 @@ class Cena02 extends Phaser.Scene
         this.physics.add.collider(player, this.facas, this.ColisaoPlayerFaca, null, this)
         this.physics.add.collider(player, ativador, this.ColisaoPlayerAtivador, null, this)
         this.physics.add.collider(player, laser, this.ColisaoHandler, null, this)
+        this.physics.add.collider(player, porta, this.ColisaoPlayerPorta, null, this)
         
 
-        pontuacao = 40
+        pontuacao = 0
         pontuacaoUI = this.add.text(10, 10, "Pontuação: " + pontuacao, { font: "30px Arial"});
 
         tecla = this.input.keyboard.createCursorKeys();
@@ -149,12 +161,19 @@ class Cena02 extends Phaser.Scene
         this.scene.start("Cena02");
 
     }
-
-    ColisaoPlayerTeste(player, teste) 
+    
+    ColisaoPlayerTeste(player, teste, laserObjeto) 
     {
 
-        teste.disableBody(true,true)
-        //laser.disableBody(true,true)
+        teste.disableBody(true,true);
+        laserObject.disableBody(true, true);
+
+    }
+
+    ColisaoPlayerPorta(player, porta) 
+    {
+
+        this.scene.start("Cena01");
 
     }
 
