@@ -1,4 +1,5 @@
 var laserObject;
+var barreiraObject;
 
 class Cena02 extends Phaser.Scene
 {
@@ -38,6 +39,12 @@ class Cena02 extends Phaser.Scene
         var cientista = this.physics.add.staticGroup();
         cientista.create(50, 495, "cientista").setScale(0.12).refreshBody();
 
+        var janela = this.physics.add.staticGroup();
+        janela.create(400, 100, "janela").setScale(2).refreshBody();
+
+        var barreira = this.physics.add.staticGroup();
+        barreiraObject = barreira.create(670, 222, "barreira").setScale(1.5).refreshBody();
+
         var laser = this.physics.add.staticGroup();
         laserObject = laser.create(670, 410, "laser").setScale(0.13).refreshBody();
         laserObject.setAngle(-90);
@@ -58,7 +65,7 @@ class Cena02 extends Phaser.Scene
 
         this.facas = this.physics.add.staticGroup({
             key: "bateria",
-            repeat: 2,
+            repeat: 1,
             setXY: { x: 180, y: 366, stepX: 250, stepY: -50}
         });
 
@@ -91,6 +98,7 @@ class Cena02 extends Phaser.Scene
         
         this.physics.add.collider(player, this.chaolab)
         this.physics.add.collider(player, this.plataformas)
+        this.physics.add.collider(player, barreira)
 
         this.physics.add.collider(player, _faca, this.ColisaoPlayerFaca, null, this)
         this.physics.add.collider(player, teste, this.ColisaoPlayerTeste, null, this)
@@ -129,6 +137,18 @@ class Cena02 extends Phaser.Scene
         {
             player.setVelocityY(-400);
         }
+
+        if (pontuacao >= 30)
+        {
+
+            barreiraObject.x = 738;
+            barreiraObject.y = 190;
+            barreiraObject.setAngle(-90);
+
+            barreiraObject.body.enable = false;
+
+        }
+
     }
 
     ColisaoPlayerFaca(player, faca)
@@ -140,7 +160,7 @@ class Cena02 extends Phaser.Scene
 
     ColisaoPlayerAtivador(player, ativador)
     {
-        if (pontuacao >= 40)
+        if (pontuacao >= 30)
         {  
 
             var plataforma3 = this.physics.add.staticGroup();
