@@ -165,17 +165,23 @@ class Cena01 extends Phaser.Scene
             this.physics.add.collider(player, plataforma4)
 
         }
-        else this.scene.start("Cena01");
+        else
+        {
+            pontuacao = 0;
+            this.scene.start("Cena01");
+        }
+        
     }
 
-    ColisaoHandler(player, laser) 
+    ColisaoHandler(player, laser)
     {
+        pontuacao = 0;
         this.scene.start("Cena01");
     }
     
-    ColisaoPlayerTeste(player, teste, laserObjeto) 
+    ColisaoPlayerTeste(player, teste)
     {
-        teste.disableBody(true,true);
+        teste.disableBody(true, true);
         laserObject.disableBody(true, true);
     }
 

@@ -161,9 +161,9 @@ class Cena02 extends Phaser.Scene
         this.scene.start("Cena02");
     }
     
-    ColisaoPlayerTeste(player, teste, laserObjeto) 
+    ColisaoPlayerTeste(player, teste) 
     {
-        teste.disableBody(true,true);
+        teste.disableBody(true, true);
         laserObject.disableBody(true, true);
     }
 
