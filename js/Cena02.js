@@ -14,7 +14,16 @@ class Cena02 extends Phaser.Scene
         fundo.setScale(0.5)
 
         var inimigo = this.physics.add.staticGroup();
-        inimigo.create(150, 484, "inimigo");
+        inimigo.create(160, 370, "inimigo");
+
+        var inimigo2 = this.physics.add.staticGroup();
+        inimigo2.create(260, 370, "inimigo");
+
+        var inimigo3 = this.physics.add.staticGroup();
+        inimigo3.create(420, 320, "inimigo");
+
+        var inimigo4 = this.physics.add.staticGroup();
+        inimigo4.create(520, 510, "inimigo");
 
         this.chaolab = this.physics.add.staticGroup({
             key: "chao2",
@@ -55,7 +64,7 @@ class Cena02 extends Phaser.Scene
         this.baterias = this.physics.add.staticGroup({
             key: "bateria",
             repeat: 1,
-            setXY: { x: 180, y: 366, stepX: 250, stepY: -50}
+            setXY: { x: 200, y: 366, stepX: 270, stepY: -50}
         });
 
         this.plataformas.children.iterate(function (plataforma, index) {
