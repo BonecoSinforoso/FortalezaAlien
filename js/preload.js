@@ -35,6 +35,7 @@ class preload extends Phaser.Scene
         this.load.image("inimigo","/assets/_inimigo.png")
         this.load.image("faca","/assets/_faca.png")
         this.load.image("chave","/assets/_chave.png")
+        this.load.image("btn_menu","/assets/btn_menu.png")
     }
 
     create()
@@ -44,6 +45,6 @@ class preload extends Phaser.Scene
 
         var btn_play = this.add.image(400, 300, "btn_play")
         btn_play.setInteractive()
-        btn_play.on("pointerdown", ()=>this.scene.start("Cena01"))
+        btn_play.on("pointerdown", ()=>this.scene.start("Cena03"))
     }
 }

@@ -113,7 +113,7 @@ class Cena02 extends Phaser.Scene
 
     ColisaoPlayerInimigo(player, inimigo)
     {
-        this.scene.start("Cena01");
+        this.scene.start("Cena02");
     }
 
     ColisaoPlayerFaca(player, faca)
@@ -125,7 +125,7 @@ class Cena02 extends Phaser.Scene
 
     ColisaoPlayerChave(player, chave)
     {
-        if (pontuacao == 40) this.scene.start("Cena02");
-        else this.scene.start("Cena01");
+        if (pontuacao == 40) this.scene.start("Cena03");
+        else this.scene.start("Cena02");
     }
 }
