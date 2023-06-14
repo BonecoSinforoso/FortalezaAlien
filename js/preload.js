@@ -44,9 +44,6 @@ class preload extends Phaser.Scene
 
         var btn_play = this.add.image(400, 300, "btn_play")
         btn_play.setInteractive()
-        btn_play.on("pointerdown", ()=>this.scene.start("Cena02"))
-
-        //var hitArea = new Phaser.Geom.Rectangle(0, 0, 100, 100);
-        //btn_play.setInteractive(hitArea, Phaser.Geom.Rectangle.Contains);
+        btn_play.on("pointerdown", ()=>this.scene.start("Cena01"))
     }
 }
