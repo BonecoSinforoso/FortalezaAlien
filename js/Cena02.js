@@ -13,6 +13,9 @@ class Cena02 extends Phaser.Scene
         var fundo = this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
         fundo.setScale(0.5)
 
+        var inimigo = this.physics.add.staticGroup();
+        inimigo.create(150, 484, "inimigo");
+
         this.chaolab = this.physics.add.staticGroup({
             key: "chao2",
             repeat: 5,
@@ -40,8 +43,8 @@ class Cena02 extends Phaser.Scene
 
         player = this.physics.add.sprite(30, 500, "player");
 
-        var _faca = this.physics.add.staticGroup();
-        _faca.create(600, 500, "bateria");
+        var _bateria = this.physics.add.staticGroup();
+        _bateria.create(600, 500, "bateria");
 
         this.plataformas = this.physics.add.staticGroup({
             key: "chao2",
@@ -49,7 +52,7 @@ class Cena02 extends Phaser.Scene
             setXY: { x: 230, y: 400, stepX: 250, stepY: -50}
         });
 
-        this.facas = this.physics.add.staticGroup({
+        this.baterias = this.physics.add.staticGroup({
             key: "bateria",
             repeat: 1,
             setXY: { x: 180, y: 366, stepX: 250, stepY: -50}
@@ -84,14 +87,15 @@ class Cena02 extends Phaser.Scene
         this.physics.add.collider(player, this.plataformas)
         this.physics.add.collider(player, barreira)
 
-        this.physics.add.collider(player, _faca, this.ColisaoPlayerFaca, null, this)
+        this.physics.add.collider(player, inimigo, this.ColisaoPlayerInimigo, null, this)
+        this.physics.add.collider(player, _bateria, this.ColisaoPlayerBateria, null, this)
         this.physics.add.collider(player, teste, this.ColisaoPlayerTeste, null, this)
-        this.physics.add.collider(player, this.facas, this.ColisaoPlayerFaca, null, this)
+        this.physics.add.collider(player, this.baterias, this.ColisaoPlayerBateria, null, this)
         this.physics.add.collider(player, ativador, this.ColisaoPlayerAtivador, null, this)
         this.physics.add.collider(player, laser, this.ColisaoHandler, null, this)
         this.physics.add.collider(player, porta, this.ColisaoPlayerPorta, null, this)
 
-        //pontuacao = 0
+        pontuacao = 30
         pontuacaoUI = this.add.text(10, 10, "Pontuação: " + pontuacao, { font: "30px Arial"});
 
         tecla = this.input.keyboard.createCursorKeys();
@@ -121,7 +125,7 @@ class Cena02 extends Phaser.Scene
             player.setVelocityY(-400);
         }
 
-        if (pontuacao >= 30)
+        if (pontuacao >= 60)
         {
             barreiraObject.x = 738;
             barreiraObject.y = 190;
@@ -129,21 +133,19 @@ class Cena02 extends Phaser.Scene
 
             barreiraObject.body.enable = false;
         }
-
     }
 
-    ColisaoPlayerFaca(player, faca)
+    ColisaoPlayerBateria(player, bateria)
     {
         pontuacao += 10
-        faca.disableBody(true,true)
+        bateria.disableBody(true, true)
         pontuacaoUI.setText("Pontuação: " + pontuacao);
     }
 
     ColisaoPlayerAtivador(player, ativador)
     {
-        if (pontuacao >= 30)
-        {  
-
+        if (pontuacao >= 60)
+        {
             var plataforma3 = this.physics.add.staticGroup();
             plataforma3.create(100, 100, "chao2").setScale(1).refreshBody();
             this.physics.add.collider(player, plataforma3)
@@ -151,12 +153,16 @@ class Cena02 extends Phaser.Scene
             var plataforma4 = this.physics.add.staticGroup();
             plataforma4.create(400, 200, "chao2").setScale(1).refreshBody();
             this.physics.add.collider(player, plataforma4)
-
         }
         else this.scene.start("Cena02");
     }
 
     ColisaoHandler(player, laser) 
+    {
+        this.scene.start("Cena02");
+    }
+
+    ColisaoPlayerInimigo(player, inimigo)
     {
         this.scene.start("Cena02");
     }
@@ -167,7 +173,7 @@ class Cena02 extends Phaser.Scene
         laserObject.disableBody(true, true);
     }
 
-    ColisaoPlayerPorta(player, porta) 
+    ColisaoPlayerPorta(player, porta)
     {
         this.scene.start("Cena03");
     }

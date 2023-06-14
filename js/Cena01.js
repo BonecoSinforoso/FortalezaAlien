@@ -154,8 +154,7 @@ class Cena01 extends Phaser.Scene
     ColisaoPlayerAtivador(player, ativador)
     {
         if (pontuacao >= 30)
-        {  
-
+        {
             var plataforma3 = this.physics.add.staticGroup();
             plataforma3.create(100, 100, "chao2").setScale(1).refreshBody();
             this.physics.add.collider(player, plataforma3)
@@ -170,7 +169,6 @@ class Cena01 extends Phaser.Scene
             pontuacao = 0;
             this.scene.start("Cena01");
         }
-        
     }
 
     ColisaoHandler(player, laser)
