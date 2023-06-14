@@ -10,8 +10,6 @@ class Cena01 extends Phaser.Scene
 
     create()
     {
-
-        //this.add.image(400, 300, "fundo")
         var fundo = this.add.image(0, 0, "fundo2").setOrigin(0, 0)
         fundo.setScale(2.7)
 
@@ -93,8 +91,6 @@ class Cena01 extends Phaser.Scene
             frameRate: 10,
             repeat: -1
         });
-
-        
         
         this.physics.add.collider(player, this.chaolab)
         this.physics.add.collider(player, this.plataformas)
@@ -106,7 +102,6 @@ class Cena01 extends Phaser.Scene
         this.physics.add.collider(player, ativador, this.ColisaoPlayerAtivador, null, this)
         this.physics.add.collider(player, laser, this.ColisaoHandler, null, this)
         this.physics.add.collider(player, porta, this.ColisaoPlayerPorta, null, this)
-        
 
         pontuacao = 0
         pontuacaoUI = this.add.text(10, 10, "Pontuação: " + pontuacao, { font: "30px Arial"});
@@ -140,13 +135,11 @@ class Cena01 extends Phaser.Scene
 
         if (pontuacao >= 30)
         {
-
             barreiraObject.x = 738;
             barreiraObject.y = 190;
             barreiraObject.setAngle(-90);
 
             barreiraObject.body.enable = false;
-
         }
 
     }
@@ -177,24 +170,17 @@ class Cena01 extends Phaser.Scene
 
     ColisaoHandler(player, laser) 
     {
-
         this.scene.start("Cena01");
-
     }
     
     ColisaoPlayerTeste(player, teste, laserObjeto) 
     {
-
         teste.disableBody(true,true);
         laserObject.disableBody(true, true);
-
     }
 
     ColisaoPlayerPorta(player, porta) 
     {
-
         this.scene.start("Cena02");
-
     }
-
 }
