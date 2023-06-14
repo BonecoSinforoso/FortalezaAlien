@@ -103,7 +103,7 @@ class Cena01 extends Phaser.Scene
         this.physics.add.collider(player, laser, this.ColisaoHandler, null, this)
         this.physics.add.collider(player, porta, this.ColisaoPlayerPorta, null, this)
 
-        pontuacao = 0
+        //pontuacao = 0
         pontuacaoUI = this.add.text(10, 10, "Pontuação: " + pontuacao, { font: "30px Arial"});
 
         tecla = this.input.keyboard.createCursorKeys();
