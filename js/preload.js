@@ -47,6 +47,6 @@ class preload extends Phaser.Scene
 
         var btn_play = this.add.image(400, 400, "btn_play")
         btn_play.setInteractive()
-        btn_play.on("pointerdown", ()=>this.scene.start("Cena02"))
+        btn_play.on("pointerdown", ()=>this.scene.start("Cena01"))
     }
 }

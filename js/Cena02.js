@@ -7,8 +7,8 @@ class Cena02 extends Phaser.Scene
 
     create()
     {
-        var fundo = this.add.image(0, 0, "fundo").setOrigin(0, 0)
-        fundo.setScale(2.7)
+        var fundo = this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
+        fundo.setScale(0.5)
 
         var chao = this.physics.add.staticGroup();
         chao.create(0, 520, "chao").setOrigin(0, 0).refreshBody();
@@ -68,12 +68,10 @@ class Cena02 extends Phaser.Scene
             repeat: -1
         });
         
-        //asd -------------------
         this.physics.add.collider(player, chao)
         this.physics.add.collider(player, chao2)
         this.physics.add.collider(player, this.plataformas)
 
-        //on collision -----------------
         this.physics.add.collider(player, _inimigo, this.ColisaoPlayerInimigo, null, this)
         this.physics.add.collider(player, this.inimigos, this.ColisaoPlayerInimigo, null, this)
         this.physics.add.collider(player, _faca, this.ColisaoPlayerFaca, null, this)
