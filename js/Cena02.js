@@ -19,12 +19,6 @@ class Cena02 extends Phaser.Scene
             setXY: { x: 80, y: 540, stepX: 150, stepY: 0}
         });
 
-        var mesa1 = this.physics.add.staticGroup();
-        mesa1.create(150, 476, "mesa1").setScale(1.5).refreshBody();
-        
-        var prateleira = this.physics.add.staticGroup();
-        prateleira.create(450, 476, "prateleira").setScale(1.5).refreshBody();
-
         var ativador = this.physics.add.staticGroup();
         ativador.create(780, 280, "ativador").refreshBody();
 
@@ -33,12 +27,6 @@ class Cena02 extends Phaser.Scene
 
         var porta = this.physics.add.staticGroup();
         porta.create(750, 484, "porta").setScale(2.5).refreshBody();
-
-        var cientista = this.physics.add.staticGroup();
-        cientista.create(50, 495, "cientista").setScale(0.12).refreshBody();
-
-        var janela = this.physics.add.staticGroup();
-        janela.create(400, 100, "janela").setScale(2).refreshBody();
 
         var barreira = this.physics.add.staticGroup();
         barreiraObject = barreira.create(670, 222, "barreira").setScale(1.5).refreshBody();
@@ -50,7 +38,7 @@ class Cena02 extends Phaser.Scene
         var alturaColisao = 200;
         laserObject.setSize(novaLarguraColisao, alturaColisao);
 
-        player = this.physics.add.sprite(400, 470, "player");
+        player = this.physics.add.sprite(30, 500, "player");
 
         var _faca = this.physics.add.staticGroup();
         _faca.create(600, 500, "bateria");
@@ -165,12 +153,12 @@ class Cena02 extends Phaser.Scene
             this.physics.add.collider(player, plataforma4)
 
         }
-        else this.scene.start("Cena01");
+        else this.scene.start("Cena02");
     }
 
     ColisaoHandler(player, laser) 
     {
-        this.scene.start("Cena01");
+        this.scene.start("Cena02");
     }
     
     ColisaoPlayerTeste(player, teste, laserObjeto) 
@@ -181,6 +169,6 @@ class Cena02 extends Phaser.Scene
 
     ColisaoPlayerPorta(player, porta) 
     {
-        this.scene.start("Cena02");
+        this.scene.start("Cena03");
     }
 }
