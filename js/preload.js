@@ -36,15 +36,17 @@ class preload extends Phaser.Scene
         this.load.image("faca","/assets/_faca.png")
         this.load.image("chave","/assets/_chave.png")
         this.load.image("btn_menu","/assets/btn_menu.png")
+        this.load.image("txt_titulo","/assets/txt_titulo.png")
     }
 
     create()
     {
-        var fundo = this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
-        //fundo.setScale(2.7)
+        this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
+        var titulo = this.add.image(145, 200, "txt_titulo").setOrigin(0, 0)
+        titulo.setScale(1.5)
 
-        var btn_play = this.add.image(400, 300, "btn_play")
+        var btn_play = this.add.image(400, 400, "btn_play")
         btn_play.setInteractive()
-        btn_play.on("pointerdown", ()=>this.scene.start("Cena03"))
+        btn_play.on("pointerdown", ()=>this.scene.start("Cena02"))
     }
 }

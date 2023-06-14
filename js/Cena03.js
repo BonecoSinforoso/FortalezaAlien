@@ -7,18 +7,15 @@ class Cena03 extends Phaser.Scene
 
     create()
     {
-        //this.add.image(400, 300, "fundo")
-        var fundo = this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
+        this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
         
-        var btn_menu = this.add.image(400, 300, "btn_menu")
+        var btn_menu = this.add.image(400, 400, "btn_menu")
         btn_menu.setInteractive()
         btn_menu.on("pointerdown", ()=>this.scene.start("preload"))
-        btn_menu.setScale(0.1);
+        btn_menu.setScale(0.25);
 
-
-        var parabens = this.add.text(10, 10, "Parabéns" , { font: "50px Arial"});
-        parabens.setPosition(300, 200);
+        var parabens = this.add.text(10, 10, "Parabéns!" , { font: "64px Arial"});
+        parabens.setPosition(270, 200);
         parabens.setColor("#ffff00");
-
     }
 }
