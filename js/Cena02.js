@@ -14,16 +14,16 @@ class Cena02 extends Phaser.Scene
         fundo.setScale(0.5)
 
         var inimigo = this.physics.add.staticGroup();
-        inimigo.create(160, 370, "inimigo");
+        inimigo.create(160, 360, "inimigo");
 
         var inimigo2 = this.physics.add.staticGroup();
-        inimigo2.create(260, 370, "inimigo");
+        inimigo2.create(260, 360, "inimigo");
 
         var inimigo3 = this.physics.add.staticGroup();
-        inimigo3.create(420, 320, "inimigo");
+        inimigo3.create(420, 310, "inimigo");
 
         var inimigo4 = this.physics.add.staticGroup();
-        inimigo4.create(520, 510, "inimigo");
+        inimigo4.create(520, 500, "inimigo");
 
         this.chaolab = this.physics.add.staticGroup({
             key: "chao2",
