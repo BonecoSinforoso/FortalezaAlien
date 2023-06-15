@@ -13,7 +13,8 @@ class Cena01 extends Phaser.Scene
         var fundo = this.add.image(0, 0, "fundo2").setOrigin(0, 0)
         fundo.setScale(2.7)
 
-        var parabens = this.add.text(10, 430, "FUJA!" , { font: "32px Arial"});
+        var txt_fuja = this.add.text(10, 430, "FUJA!" , { font: "32px Arial"});
+        txt_fuja.setColor("#ff0000");
 
         this.chaolab = this.physics.add.staticGroup({
             key: "chao2",
@@ -52,7 +53,7 @@ class Cena01 extends Phaser.Scene
         var alturaColisao = 200;
         laserObject.setSize(novaLarguraColisao, alturaColisao);
 
-        player = this.physics.add.sprite(200, 470, "player");
+        player = this.physics.add.sprite(220, 470, "player");
 
         var _faca = this.physics.add.staticGroup();
         _faca.create(600, 500, "bateria");
