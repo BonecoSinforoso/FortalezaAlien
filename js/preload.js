@@ -13,7 +13,6 @@ class preload extends Phaser.Scene
 
     preload()
     {
-        this.load.image("chao","/assets/_chao.png")
         this.load.image("chao2","/assets/LabTileset/Lab/chao2.png")
         this.load.image("mesa1","/assets/LabTileset/Lab/862-0.png")
         this.load.image("prateleira","/assets/LabTileset/Lab/1005-0.png")
@@ -31,10 +30,8 @@ class preload extends Phaser.Scene
         this.load.image("fundo2", "/assets/LabTileset/Backgrounds/984-0.png")
         this.load.image("btn_play", "/assets/_btn_play02.png")
         this.load.spritesheet("player", "assets/_alien.png", { frameWidth: 25, frameHeight: 35})
-        this.load.image("plataforma","/assets/_plataforma.png")
         this.load.image("inimigo","/assets/inimigo.png")
         this.load.image("faca","/assets/_faca.png")
-        this.load.image("chave","/assets/_chave.png")
         this.load.image("btn_menu","/assets/btn_menu.png")
         this.load.image("txt_titulo","/assets/txt_titulo.png")
     }
