@@ -3,6 +3,7 @@ var pontuacao = 0
 var tecla
 var pontuacaoUI = "0"
 var puloc
+var musica
 
 class preload extends Phaser.Scene
 {
@@ -38,6 +39,8 @@ class preload extends Phaser.Scene
         this.load.image("faca","/assets/_faca.png")
         this.load.image("btn_menu","/assets/btn_menu.png")
         this.load.image("txt_titulo","/assets/txt_titulo.png")
+
+        this.load.audio("musica","/assets/musica_fundo.mp3");
     }
 
     create()
@@ -51,5 +54,10 @@ class preload extends Phaser.Scene
         btn_play.on("pointerdown", ()=>this.scene.start("Cena01"))
 
         pontuacao = 0;
+
+        if (!musica) {
+            musica = this.sound.add('musica');
+            musica.play({ loop: true });
+        }
     }
 }

@@ -97,6 +97,9 @@ class Cena02 extends Phaser.Scene
         this.physics.add.collider(player, barreira)
 
         this.physics.add.collider(player, inimigo, this.ColisaoPlayerInimigo, null, this)
+        this.physics.add.collider(player, inimigo2, this.ColisaoPlayerInimigo, null, this)
+        this.physics.add.collider(player, inimigo3, this.ColisaoPlayerInimigo, null, this)
+        this.physics.add.collider(player, inimigo4, this.ColisaoPlayerInimigo, null, this)
         this.physics.add.collider(player, _bateria, this.ColisaoPlayerBateria, null, this)
         this.physics.add.collider(player, teste, this.ColisaoPlayerTeste, null, this)
         this.physics.add.collider(player, this.baterias, this.ColisaoPlayerBateria, null, this)
