@@ -10,6 +10,11 @@ class Cena02 extends Phaser.Scene
 
     create()
     {
+        if (!musica) {
+            musica = this.sound.add('musica');
+            musica.play({ loop: true });
+        }
+        
         var fundo = this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
         fundo.setScale(0.5)
 

@@ -7,6 +7,11 @@ class Cena03 extends Phaser.Scene
 
     create()
     {
+        if (!musica) {
+            musica = this.sound.add('musica');
+            musica.play({ loop: true });
+        }
+        
         this.add.image(0, 0, "fundoMenu").setOrigin(0, 0)
         
         var btn_menu = this.add.image(400, 400, "btn_menu")
