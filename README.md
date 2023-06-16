@@ -1,0 +1,9 @@
+# FortalezaAlien
+
+Jogo feito na Phaser3.
+
+Créditos:
+
+Adrian Willy - programação - https://github.com/Capiteli
+Bruno Simões - dono da música - ignysdev@gmail.com
+Ícaro Carvalho (me) - programação/desing - https://www.linkedin.com/in/%C3%ADcaro-carvalho-596015220/ ou https://www.behance.net/sinforoso
